@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Routes,
+  BrowserRouter as Router,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import TestGrid from "./pages/TestGrid";
+import TestFlex from "./pages/TestFlex";
+import TestSelect from "./pages/TestSelect";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+      <Route path="/" element={<Navigate to="/test-grid" />} />
+        <Route exact path="/test-grid" element={<TestGrid />} />
+        <Route exact path="/test-flex" element={<TestFlex />} />
+        <Route exact path="/test-select" element={<TestSelect />} />
+      </Routes>
+    </Router>
   );
 }
 
